@@ -1,24 +1,28 @@
-package com.example.academicperfomancetask.entities;
+package com.example.academicperfomancetask.entities.dtos;
 
-import jakarta.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 @Data
-@Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Teacher {
-    @Id
+public class TeacherDto {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String name;
-    String surname;
-    String patronymic;
+    @JsonProperty("name")
+    String teacherName;
+
+    @JsonProperty("surname")
+    String teacherSurname;
+
+    @JsonProperty("patronymic")
+    String teacherPatronymic;
+
     boolean active;
 
 }
