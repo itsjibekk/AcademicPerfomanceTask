@@ -1,7 +1,6 @@
 package com.example.academicperfomancetask.services.impl;
 
 import com.example.academicperfomancetask.entities.Student;
-import com.example.academicperfomancetask.entities.dtos.GetStudentDto;
 import com.example.academicperfomancetask.entities.dtos.StudentDto;
 import com.example.academicperfomancetask.mappers.StudentMapper;
 import com.example.academicperfomancetask.repositories.StudentRepo;
@@ -27,6 +26,22 @@ public class StudentServiceImpl implements StudentService {
             student = studentRepo.save(studentMapper.ToStudent(studentDto));
             return studentMapper.ToStudentDto(student);
         }
+
+    @Override
+    public Student findStudentByid(Long id) {
+        if (id != null){
+            Student student = studentRepo.findById(id).orElseThrow();
+            if(studentRepo.findById(id).isPresent()) return student;
+        }
+
+        Student student1 = new Student();
+        student1.setId(2L);
+        student1.setAcitve(true);
+        student1.setPatronymic("fe");
+        student1.setName("re");
+        student1.setSurname("ty");
+        return student1;
+    }
 
 
 }
