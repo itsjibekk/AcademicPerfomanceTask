@@ -1,6 +1,7 @@
 package com.example.academicperfomancetask.services.impl;
 
 import com.example.academicperfomancetask.entities.Student;
+import com.example.academicperfomancetask.entities.dtos.GetStudentDto;
 import com.example.academicperfomancetask.entities.dtos.StudentDto;
 import com.example.academicperfomancetask.mappers.StudentMapper;
 import com.example.academicperfomancetask.repositories.StudentRepo;
@@ -27,5 +28,6 @@ public class StudentServiceImpl implements StudentService {
             return studentMapper.ToStudentDto(student);
         }
 
-    }
+
+}
 

@@ -1,11 +1,9 @@
 package com.example.academicperfomancetask.controllers;
 
+import com.example.academicperfomancetask.entities.dtos.GetStudentDto;
 import com.example.academicperfomancetask.entities.dtos.StudentDto;
 import com.example.academicperfomancetask.services.StudentService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/student")
@@ -26,5 +24,7 @@ public class StudentController {
     public StudentDto update(@RequestBody StudentDto studentDto){
         return studentService.update(studentDto);
     }
+
+
 
 }
