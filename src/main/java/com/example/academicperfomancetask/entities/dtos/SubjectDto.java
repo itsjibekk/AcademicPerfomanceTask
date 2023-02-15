@@ -1,6 +1,6 @@
 package com.example.academicperfomancetask.entities.dtos;
 
-import jakarta.persistence.GeneratedValue;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -8,10 +8,12 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class SubjectDto {
-    @GeneratedValue
-    Long id;
+
+    @JsonProperty("id")
+    Long subject_id;
     String name;
     boolean active;
-    Long teacher_id;
+    @JsonProperty("teacher_id")
+    Long id;
 
 }

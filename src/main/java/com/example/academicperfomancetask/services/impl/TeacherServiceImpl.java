@@ -26,10 +26,27 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public TeacherDto update(TeacherDto teacherDto) {
-
-        Teacher teacher = teacherRepo.findById(teacherDto.getId()).orElseThrow();
-        teacher = teacherMapper.teacherDtotoTeacher(teacherDto);
-        teacherRepo.save(teacher);
+        Teacher teacherById = teacherMapper.teacherDtotoTeacher(findTeacherById(teacherDto.getId()));
+        if(teacherById == null) {
+            return null;
+        }
+        Teacher teacher = teacherMapper.teacherDtotoTeacher(teacherDto);
+        teacher = teacherRepo.save(teacher);
         return teacherMapper.teacherToTeacherDto(teacher);
+    }
+    @Override
+    public TeacherDto findTeacherById(Long id) {
+        if (id != null){
+            Teacher teacher = teacherRepo.findById(id).orElseThrow();
+            if(teacherRepo.findById(id).isPresent()) return teacherMapper.teacherToTeacherDto(teacher);
+        }
+
+        Teacher teacher1 = new Teacher();
+        teacher1.setId(1L);
+        teacher1.setActive(true);
+        teacher1.setPatronymic("fe");
+        teacher1.setName("re");
+        teacher1.setSurname("ty");
+         return teacherMapper.teacherToTeacherDto(teacher1);
     }
 }

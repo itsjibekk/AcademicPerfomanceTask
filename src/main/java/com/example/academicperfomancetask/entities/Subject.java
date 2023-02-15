@@ -9,7 +9,6 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Subject {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -17,4 +16,5 @@ public class Subject {
     boolean active;
     @ManyToOne
     Teacher teacher;
+
 }

@@ -17,7 +17,6 @@ public class TeacherMapperImpl implements TeacherMapper {
         teacher.setId(teacherDto.getId());
         return teacher;
     }
-
     public TeacherDto teacherToTeacherDto(Teacher teacher){
         TeacherDto teacherDto = new TeacherDto();
         teacherDto.setTeacherName(teacher.getName());
