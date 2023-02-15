@@ -1,9 +1,6 @@
 package com.example.academicperfomancetask.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -11,13 +8,15 @@ import lombok.experimental.FieldDefaults;
 @Data
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Teacher {
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
     String surname;
     String patronymic;
-    boolean active;
-
+    boolean acitve;
+    String address;
+    @ManyToOne
+    Subject subject;
 }

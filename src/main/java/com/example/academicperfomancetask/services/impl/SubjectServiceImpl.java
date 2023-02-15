@@ -26,4 +26,14 @@ public class SubjectServiceImpl implements SubjectService {
         subject = subjectRepo.save(subjectMapper.toSubject(subjectDto));
         return subjectMapper.subjectToDto(subject);
     }
+    @Override
+    public SubjectDto findSubjectById(Long id) {
+        if (id != null){
+            Subject subject = subjectRepo.findById(id).orElseThrow();
+            if(subjectRepo.findById(id).isPresent()) return subjectMapper.subjectToDto(subject);
+        }
+        Subject subject1 = new Subject();
+        subject1.setId(1L);
+        return subjectMapper.subjectToDto(subject1);
+    }
 }
